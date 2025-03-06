@@ -1,0 +1,181 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #fce4ec 100%);
+    font-family: 'Poppins', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 800px;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.photo-container {
+    position: relative;
+    margin-bottom: 2rem;
+    display: inline-block;
+}
+
+.photo-frame {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid rgba(244, 143, 177, 0.6);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.heart {
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 30px;
+    height: 30px;
+    background: #e91e63;
+    animation: heartBeat 1.5s ease-in-out infinite;
+    cursor: pointer;
+    clip-path: path('M15,0 C6.7,0 0,6.7 0,15 C0,30 15,37 15,37 C15,37 30,30 30,15 C30,6.7 23.3,0 15,0 Z');
+}
+
+.heart::before,
+.heart::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: #e91e63;
+    border-radius: 50%;
+}
+
+.heart::before {
+    left: -15px;
+}
+
+.heart::after {
+    top: -15px;
+}
+
+.title {
+    font-family: 'Dancing Script', cursive;
+    font-size: 4rem;
+    color: #d81b60;
+    margin-bottom: 1.5rem;
+    animation: fadeIn 1.5s ease-out;
+}
+
+.message {
+    font-size: 1.2rem;
+    color: #6a1b9a;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    animation: slideUp 1s ease-out 0.5s both;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 1.5rem;
+    color: #ec407a;
+    animation: fadeIn 1.5s ease-out 1s both;
+}
+
+#petals-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.petal {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: linear-gradient(45deg, #ffcdd2, #f8bbd0);
+    border-radius: 150% 0 150% 0;
+    animation: falling linear forwards;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transform-origin: center;
+}
+
+@keyframes falling {
+    0% {
+        transform: translateY(-5vh) rotate(0deg);
+        opacity: 0.9;
+    }
+    25% {
+        transform: translateY(25vh) rotate(180deg) translateX(20px);
+        opacity: 0.9;
+    }
+    50% {
+        transform: translateY(50vh) rotate(360deg) translateX(-20px);
+        opacity: 0.8;
+    }
+    75% {
+        transform: translateY(75vh) rotate(540deg) translateX(15px);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes heartBeat {
+    0%, 100% { transform: translateX(-50%) scale(1); }
+    50% { transform: translateX(-50%) scale(1.1); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 3rem;
+    }
+    
+    .photo-frame {
+        width: 220px;
+        height: 220px;
+    }
+    
+    .message {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+}
