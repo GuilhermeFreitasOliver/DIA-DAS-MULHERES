@@ -44,35 +44,38 @@ body {
     object-fit: cover;
 }
 
+/* Coração ajustado para ficar em pé */
 .heart {
     position: absolute;
     bottom: -15px;
     left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
+    /* Ajuste: centralizando com translateX(-50%) e aplicando rotação clássica para o coração */
+    transform: translateX(-50%) rotate(-45deg);
+    width: 50px;
+    height: 50px;
     background: #e91e63;
     animation: heartBeat 1.5s ease-in-out infinite;
     cursor: pointer;
-    clip-path: path('M15,0 C6.7,0 0,6.7 0,15 C0,30 15,37 15,37 C15,37 30,30 30,15 C30,6.7 23.3,0 15,0 Z');
 }
 
 .heart::before,
 .heart::after {
-    content: '';
+    content: "";
     position: absolute;
-    width: 30px;
-    height: 30px;
     background: #e91e63;
     border-radius: 50%;
+    width: 50px;
+    height: 50px;
 }
 
 .heart::before {
-    left: -15px;
+    top: -25px;
+    left: 0;
 }
 
 .heart::after {
-    top: -15px;
+    top: 0;
+    left: 25px;
 }
 
 .title {
@@ -143,9 +146,10 @@ body {
     }
 }
 
+/* Keyframes ajustados para incluir a rotação fixa do coração */
 @keyframes heartBeat {
-    0%, 100% { transform: translateX(-50%) scale(1); }
-    50% { transform: translateX(-50%) scale(1.1); }
+    0%, 100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
+    50% { transform: translateX(-50%) rotate(-45deg) scale(1.1); }
 }
 
 @keyframes fadeIn {
