@@ -6,8 +6,10 @@
 
 body {
     min-height: 100vh;
-    background: linear-gradient(135deg, #fce4ec 0%, #f3e5f5 50%, #fce4ec 100%);
-    font-family: 'Poppins', sans-serif;
+    /* Gradiente suave com tons pastel */
+    background: linear-gradient(135deg, #fff1f3 0%, #ffeaf0 50%, #fff1f3 100%);
+    /* Fonte moderna e minimalista */
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -33,7 +35,8 @@ body {
     height: 280px;
     border-radius: 50%;
     overflow: hidden;
-    border: 4px solid rgba(244, 143, 177, 0.6);
+    /* Borda mais suave */
+    border: 4px solid rgba(244, 143, 177, 0.5);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     margin: 0 auto;
 }
@@ -42,18 +45,20 @@ body {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: 50% 30%;
 }
+
 
 /* Coração ajustado para ficar em pé */
 .heart {
     position: absolute;
     bottom: -15px;
     left: 50%;
-    /* Ajuste: centralizando com translateX(-50%) e aplicando rotação clássica para o coração */
     transform: translateX(-50%) rotate(-45deg);
     width: 50px;
     height: 50px;
-    background: #e91e63;
+    /* Cor do coração suavizada */
+    background: #e07a91;
     animation: heartBeat 1.5s ease-in-out infinite;
     cursor: pointer;
 }
@@ -62,7 +67,7 @@ body {
 .heart::after {
     content: "";
     position: absolute;
-    background: #e91e63;
+    background: #e07a91;
     border-radius: 50%;
     width: 50px;
     height: 50px;
@@ -78,26 +83,27 @@ body {
     left: 25px;
 }
 
+/* Títulos e assinatura com Montserrat */
 .title {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
     font-size: 4rem;
-    color: #d81b60;
+    color: #a64d79;
     margin-bottom: 1.5rem;
     animation: fadeIn 1.5s ease-out;
 }
 
 .message {
     font-size: 1.2rem;
-    color: #6a1b9a;
+    color: #7a5c8c;
     line-height: 1.6;
     margin-bottom: 2rem;
     animation: slideUp 1s ease-out 0.5s both;
 }
 
 .signature {
-    font-family: 'Dancing Script', cursive;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.5rem;
-    color: #ec407a;
+    color: #c15a7a;
     animation: fadeIn 1.5s ease-out 1s both;
 }
 
@@ -146,7 +152,7 @@ body {
     }
 }
 
-/* Keyframes ajustados para incluir a rotação fixa do coração */
+/* Keyframes ajustados para manter a rotação fixa durante a animação */
 @keyframes heartBeat {
     0%, 100% { transform: translateX(-50%) rotate(-45deg) scale(1); }
     50% { transform: translateX(-50%) rotate(-45deg) scale(1.1); }
